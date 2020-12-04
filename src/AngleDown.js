@@ -1,12 +1,13 @@
 import React from "react";
 
-function AngleDown() {
+function AngleDown({ onClick }) {
   return (
     <svg
+      onClick={onClick}
       xmlns="http://www.w3.org/2000/svg"
       x="0"
       y="0"
-      className="bg-purpl h-4 flex items-center 0"
+      className="bg-purpl h-4 flex items-center cursor-pointer"
       enableBackground="new 0 0 240.811 240.811"
       version="1.1"
       viewBox="0 0 240.811 240.811"

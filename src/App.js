@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 import AngleDown from "./AngleDown";
 import Home from "./Home";
 
 export default function App() {
+  const [drop, setDrop] = useState(false);
+
+  const click = () => setDrop((prevState) => !prevState);
+
   return (
     <div className="App">
       <div className="">
         <nav className="flex justify-between m-4 p-2 shadow border border-white-100 rounded-full">
-          <div className=" flex justify-between  items-center">
+          <div className=" flex justify-between items-center ml-2">
             <Home />
             <h1 className="ml-2">Dashboard</h1>
           </div>
@@ -22,14 +26,16 @@ export default function App() {
               Justiminao Alves
             </h2>
             <li className="flex items-center mr-4">
-              <AngleDown />
+              <AngleDown onClick={click} />
             </li>
-            <div className="text-sm text-left  dropdown font-bold text-white rounded absolute bg-purple-900  top-14 right-1 ">
-              <ul className="p-2">
-                <li className="p-2">Profile</li>
-                <li className="p-2">Signout</li>
-              </ul>
-            </div>
+            {drop && (
+              <div className="text-sm text-left  dropdown font-bold text-white rounded absolute bg-purple-900  top-14 right-1 ">
+                <ul className="p-2">
+                  <li className="p-2">Profile</li>
+                  <li className="p-2">Signout</li>
+                </ul>
+              </div>
+            )}
           </ul>
         </nav>
       </div>
